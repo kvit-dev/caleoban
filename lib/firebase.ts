@@ -7,7 +7,7 @@ import {
   signOut, 
   onAuthStateChanged,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
   sendPasswordResetEmail
 } from "firebase/auth";
 
@@ -32,6 +32,6 @@ export {
   createUserWithEmailAndPassword, 
   signOut, 
   onAuthStateChanged,
-  signInWithPopup,
+  signInWithRedirect,
   sendPasswordResetEmail
 };
