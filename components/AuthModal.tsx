@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion"; 
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, googleProvider, signInWithRedirect, sendPasswordResetEmail } from "@/lib/firebase";
+import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, googleProvider, signInWithPopup,sendPasswordResetEmail } from "@/lib/firebase";
 
 type AuthMode = 'login' | 'register' | 'forgot';
 
@@ -48,9 +48,9 @@ export default function AuthModal({ onClose, initialMode = 'login' }: { onClose:
 
   const handleGoogleLogin = async () => {
     try {
-      await signInWithRedirect(auth, googleProvider);
+      await signInWithPopup(auth, googleProvider);
+      onClose();
     } catch (err: any) {
-      console.error(err);
       setError('Не вдалося увійти через Google');
     }
   };
